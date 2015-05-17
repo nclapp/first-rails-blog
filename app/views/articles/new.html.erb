@@ -1,6 +1,7 @@
 <h1>New Article</h1>
 
-<%= form_for :article do|f| %>
+<%= form_for :article, url: articles_path do|f| %>
+<!-- creates a new form, cool. articles_path helper directs submit button to post to /articles instead of default, which was '/articles/new' before adding the 'url: articles_path' part -->
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
