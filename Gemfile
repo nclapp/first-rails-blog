@@ -43,3 +43,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'redcarpet', '~> 3.1.2' #added after rails blog tutorial to add doc:guides
