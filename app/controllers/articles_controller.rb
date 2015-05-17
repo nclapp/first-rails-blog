@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
     # added this after adding if save? functionality
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def create
     # render plain: params[:article].inspect
     # (this is a nice easy way to test, just prints params to screen)
