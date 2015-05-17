@@ -7,18 +7,22 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+
   def show
     @article = Article.find(params[:id])
   end
+
 
   def new
     @article = Article.new
     # added this after adding if save? functionality
   end
 
+
   def edit
     @article = Article.find(params[:id])
   end
+
 
   def create
     # render plain: params[:article].inspect
@@ -35,8 +39,19 @@ class ArticlesController < ApplicationController
       render 'new'
       # goes to #new action above if it's unable to save. Render is in same request, as opposed to redirect_to which issues a new request.
     end
+  end#create method
 
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
+
 
   private
   def article_params

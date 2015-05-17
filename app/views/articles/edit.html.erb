@@ -1,8 +1,11 @@
 <h1>Edit Article</h1>
 
 <%= form_for :article, url: articles_path(@article), method: :patch do |f| %>
-<!-- this line got much crazier for edit, adding @article argument and patch to one from #new -->
+<!-- this line got crazier for edit, adding @article argument and patch to one from #new -->
 
+<!-- The first parameter of form_for can be an object, say, @article which would cause the helper to fill in the form with the fields of the object. Passing in a symbol (:article) with the same name as the instance variable (@article) also automagically leads to the same behavior. This is what is happening here. More details can be found in form_for documentation. -->
+
+<!-- You don't need to pass all attributes to update. For example, if you'd call @article.update(title: 'A new title') Rails would only update the title attribute, leaving all other attributes untouched. -->
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
